@@ -4,7 +4,8 @@ import { useState } from "react";
 export default function Page() {
   const [noCount, setNoCount] = useState(0);
   const [yesPressed, setYesPressed] = useState(false);
-  const yesButtonSize = noCount * 20 + 16;
+  const [noPreseed, setNoPressed] = useState(false)
+  const yesButtonSize = noCount * 20 + 10;
 
   const phrases = [
     "No",
@@ -27,10 +28,11 @@ export default function Page() {
  
   const handleNoClick = () => {
     if(getNoButtonText(noCount) === phrases[phrases.length - 1 ]) {
-      return 
+      return  setNoPressed(true)
     }
     setNoCount(noCount + 1);
   };
+
 
   const getNoButtonText = (x) => {
     return phrases[Math.min(x, phrases.length - 1)];
@@ -43,21 +45,26 @@ export default function Page() {
         <img src="https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-kisses.gif" />
         <div className="text-4xl font-bold my-4">Ok yay!!!</div>
         </>
-      ) : (
+      ) : noPreseed ? (
+        <>
+        <img className="h-[200px]" src="https://gifdb.com/images/high/cute-sad-peach-cat-crying-on-floor-mw6mm7hhecp53cs5.gif" /> 
+        <div className="text-4xl font-bold my-4">That is not fair</div>
+      </>
+      )  : (
         <>
           <img className="h-[200px]" src="https://gifdb.com/images/high/cute-love-bear-roses-ou7zho5oosxnpo6k.gif" />
-          <h1 className="text-4xl my-4">Will you be my Valentine?</h1>
-          <div>
+          <h1 className="text-4xl text my-4">Will you be my Valentine?</h1>
+          <div className="w-full justify-center md:flex-row">
             <button
               className={`bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-4`}
-              style={{ fontSize: yesButtonSize }}
+              style={{ fontSize: getNoButtonText && yesButtonSize }}
               onClick={() => setYesPressed(true)}
             >
               Yes
             </button>
             <button
               onClick={handleNoClick}
-              className=" bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+              className=" bg-red-500 flex-0 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
             >
               {noCount === 0 ? "No" : getNoButtonText(noCount)}
             </button>
