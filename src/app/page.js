@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import Image from "next/image";
+
 export default function Page() {
   const [noCount, setNoCount] = useState(0);
   const [yesPressed, setYesPressed] = useState(false);
@@ -37,12 +37,12 @@ export default function Page() {
     <div className="flex flex-col items-center justify-center h-screen -mt-16">
       {yesPressed ? (
         <>
-        <Image src="https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-kisses.gif" />
+        <img src="https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-kisses.gif" />
         <div className="text-4xl font-bold my-4">Ok yay!!!</div>
         </>
       ) : (
         <>
-          <Image className="h-[200px]" src="https://gifdb.com/images/high/cute-love-bear-roses-ou7zho5oosxnpo6k.gif" />
+          <img className="h-[200px]" src="https://gifdb.com/images/high/cute-love-bear-roses-ou7zho5oosxnpo6k.gif" />
           <h1 className="text-4xl my-4">Will you be my Valentine?</h1>
           <div>
             <button
