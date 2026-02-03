@@ -39,7 +39,7 @@ export default function Page() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen -mt-16">
+    <div className="flex flex-col items-center w-screen justify-center h-screen -mt-16">
       {yesPressed ? (
         <>
         <img src="https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-kisses.gif" />
@@ -53,8 +53,8 @@ export default function Page() {
       )  : (
         <>
           <img className="h-[200px]" src="https://gifdb.com/images/high/cute-love-bear-roses-ou7zho5oosxnpo6k.gif" />
-          <h1 className="text-4xl text my-4">Will you be my temptation?</h1>
-          <div className="w-full justify-center md:flex-row">
+          <h1 className="text-4xl text-center text my-4">Will you be my Valentine?</h1>
+          <div className="w-full  justify-center md:flex-row">
             <button
               className={`bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-4`}
               style={{ fontSize: getNoButtonText && yesButtonSize }}
